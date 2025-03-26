@@ -1,50 +1,5 @@
-<style>
-  .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 24px;
-    margin-top: 24px;
-  }
-  .project-card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-  .project-thumbnail {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-  }
-  .project-title {
-    font-size: 1.2rem;
-    margin-top: 12px;
-    font-weight: bold;
-  }
-  .project-summary {
-    font-size: 0.95rem;
-    margin: 10px 0;
-  }
-  .toggle-btn {
-    background-color: #007acc;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
-  .pdf-container {
-    display: none;
-    margin-top: 10px;
-  }
-</style>
-
-<h2>📚 My Projects</h2>
-
+<!-- Row 1: 2 Cards -->
 <div class="project-grid">
-
   <!-- Project 1: ML Forecasting -->
   <div class="project-card">
     <img src="images/Machine-Learning-Forecasting-System-with-AWS-Lambda.png" class="project-thumbnail" alt="ML Thumbnail">
@@ -68,7 +23,10 @@
               width="100%" height="500px"></iframe>
     </div>
   </div>
+</div>
 
+<!-- Row 2: 2 Cards -->
+<div class="project-grid">
   <!-- Project 3: HR Risk Modeling -->
   <div class="project-card">
     <img src="images/HR-Data-Risk-Modeling-and-Scenario-Analysis.png" class="project-thumbnail" alt="HR Thumbnail">
@@ -92,15 +50,6 @@
               width="100%" height="500px"></iframe>
     </div>
   </div>
-
 </div>
 
-<script>
-  function togglePDF(button) {
-    const container = button.nextElementSibling;
-    const isVisible = container.style.display === "block";
-    container.style.display = isVisible ? "none" : "block";
-    button.textContent = isVisible ? "🔍 View Report" : "🔽 Hide Report";
-  }
-</script>
 
