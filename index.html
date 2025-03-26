@@ -71,6 +71,38 @@
         width: 100%;
       }
     }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 40px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 90%;
+      height: 90%;
+      border: none;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -78,28 +110,22 @@
 <h2>📚 My Projects</h2>
 
 <div class="project-grid">
-  <!-- Project 1 -->
+  <!-- Project 1 - New Tab -->
   <div class="project-card">
     <img src="images/Machine-Learning-Forecasting-System-with-AWS-Lambda.png" class="project-thumbnail" alt="ML Thumbnail">
     <div class="project-title">Machine Learning Forecasting System</div>
     <div class="project-summary">XGBoost-powered serverless model with automated deployment and monthly spend forecasting.</div>
-    <button class="toggle-btn" onclick="togglePDF(this)">🔍 View Report</button>
-    <div class="pdf-container">
-      <iframe src="Machine-Learning-Forecasting-System-with-AWS-Lambda.pdf#view=FitH&toolbar=0&navpanes=0" width="100%" height="500px"></iframe>
-      <div style="margin-top: 8px;"><a href="Machine-Learning-Forecasting-System-with-AWS-Lambda.pdf" download class="toggle-btn">⬇️ Download PDF</a></div>
-    </div>
+    <a href="Machine-Learning-Forecasting-System-with-AWS-Lambda.pdf" target="_blank" class="toggle-btn">🔍 View Report</a>
+    <div style="margin-top: 8px;"><a href="Machine-Learning-Forecasting-System-with-AWS-Lambda.pdf" download class="toggle-btn">⬇️ Download PDF</a></div>
   </div>
 
-  <!-- Project 2 -->
+  <!-- Project 2 - Modal Popup -->
   <div class="project-card">
     <img src="images/AI-Driven-Reporting-Pipeline.png" class="project-thumbnail" alt="AI Thumbnail">
     <div class="project-title">AI-Driven Reporting Pipeline</div>
     <div class="project-summary">Fully automated GPT-4 + AWS pipeline that creates natural language summaries and dashboards.</div>
-    <button class="toggle-btn" onclick="togglePDF(this)">🔍 View Report</button>
-    <div class="pdf-container">
-      <iframe src="AI-Driven-Reporting-Pipeline.pdf#view=FitH&toolbar=0&navpanes=0" width="100%" height="500px"></iframe>
-      <div style="margin-top: 8px;"><a href="AI-Driven-Reporting-Pipeline.pdf" download class="toggle-btn">⬇️ Download PDF</a></div>
-    </div>
+    <button class="toggle-btn" onclick="openModal()">🔍 View Report</button>
+    <div style="margin-top: 8px;"><a href="AI-Driven-Reporting-Pipeline.pdf" download class="toggle-btn">⬇️ Download PDF</a></div>
   </div>
 </div>
 
@@ -129,12 +155,26 @@
   </div>
 </div>
 
+<!-- Modal Viewer for AI Report -->
+<div id="pdfModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <iframe src="AI-Driven-Reporting-Pipeline.pdf#view=FitH&toolbar=1&navpanes=0" class="modal-content"></iframe>
+</div>
+
 <script>
   function togglePDF(button) {
     const container = button.nextElementSibling;
     const isVisible = container.style.display === "block";
     container.style.display = isVisible ? "none" : "block";
     button.textContent = isVisible ? "🔍 View Report" : "🔽 Hide Report";
+  }
+
+  function openModal() {
+    document.getElementById("pdfModal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("pdfModal").style.display = "none";
   }
 </script>
 
