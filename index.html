@@ -1,13 +1,105 @@
-<h2>My Projects</h2>
+<style>
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+  }
+  .project-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #fafafa;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .project-thumbnail {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  .project-title {
+    font-size: 1.2rem;
+    margin-top: 12px;
+  }
+  .project-summary {
+    font-size: 0.95rem;
+    margin: 10px 0;
+  }
+  .toggle-btn {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  .pdf-container {
+    display: none;
+    margin-top: 10px;
+  }
+</style>
 
-<h3>HR Data Risk Modeling</h3>
-<iframe src="HR-Data-Risk-Modeling-and-Scenario-Analysis.pdf#view=FitH&toolbar=0&navpanes=1" 
-        width="100%" height="600px"></iframe>
+<h2>📚 My Projects</h2>
 
-<h3>AI Driven Reporting Pipeline</h3>
-<iframe src="AI-Driven-Reporting-Pipeline.pdf#view=FitH&toolbar=0&navpanes=1" 
-        width="100%" height="600px"></iframe>
-		
-<h3>Automation Workflow</h3>
-<iframe src="Automation-Workflow.pdf#view=FitH&toolbar=0&navpanes=1" 
-        width="100%" height="600px"></iframe>
+<div class="project-grid">
+
+  <!-- Card 1 -->
+  <div class="project-card">
+    <img src="https://via.placeholder.com/360x180?text=HR+Data" class="project-thumbnail" alt="HR Thumbnail">
+    <div class="project-title">HR Data Risk Modeling</div>
+    <div class="project-summary">Serverless system for analyzing HR trends with regression, dashboards, and alerts.</div>
+    <button class="toggle-btn" onclick="togglePDF(this)">🔍 View Report</button>
+    <div class="pdf-container">
+      <iframe src="HR-Data-Risk-Modeling-and-Scenario-Analysis.pdf#view=FitH&toolbar=0&navpanes=0"
+              width="100%" height="500px"></iframe>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="project-card">
+    <img src="https://via.placeholder.com/360x180?text=AI+Reporting" class="project-thumbnail" alt="AI Thumbnail">
+    <div class="project-title">AI-Driven Reporting Pipeline</div>
+    <div class="project-summary">End-to-end AWS + GPT-4.0 pipeline that generates insights, dashboards, and PDF reports.</div>
+    <button class="toggle-btn" onclick="togglePDF(this)">🔍 View Report</button>
+    <div class="pdf-container">
+      <iframe src="AI-Driven-Reporting-Pipeline.pdf#view=FitH&toolbar=0&navpanes=0"
+              width="100%" height="500px"></iframe>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="project-card">
+    <img src="https://via.placeholder.com/360x180?text=Automation+Workflow" class="project-thumbnail" alt="Workflow Thumbnail">
+    <div class="project-title">Automation Workflow</div>
+    <div class="project-summary">Fully event-driven architecture with real-time data flow from ingestion to dashboards.</div>
+    <button class="toggle-btn" onclick="togglePDF(this)">🔍 View Report</button>
+    <div class="pdf-container">
+      <iframe src="Automation-Workflow.pdf#view=FitH&toolbar=0&navpanes=0"
+              width="100%" height="500px"></iframe>
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="project-card">
+    <img src="https://via.placeholder.com/360x180?text=ML+Forecasting" class="project-thumbnail" alt="Forecasting Thumbnail">
+    <div class="project-title">Machine Learning Forecasting System</div>
+    <div class="project-summary">XGBoost-powered serverless model with automated deployment and forecasting pipeline.</div>
+    <button class="toggle-btn" onclick="togglePDF(this)">🔍 View Report</button>
+    <div class="pdf-container">
+      <iframe src="Machine-Learning-Forecasting-System-with-AWS-Lambda.pdf#view=FitH&toolbar=0&navpanes=0"
+              width="100%" height="500px"></iframe>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function togglePDF(button) {
+    const container = button.nextElementSibling;
+    const isVisible = container.style.display === "block";
+    container.style.display = isVisible ? "none" : "block";
+    button.textContent = isVisible ? "🔍 View Report" : "🔽 Hide Report";
+  }
+</script>
